@@ -28,9 +28,9 @@ class DrupalCheck extends AbstractExternalTask
    *
    * @return bool
    */
-  public function canRunInContext(ContextInterface $context)
+  public function canRunInContext(ContextInterface $context): bool
   {
-      return ($context instanceof GitPreCommitContext);
+      return $context instanceof GitPreCommitContext || $context instanceof RunContext;
   }
 
   /**
